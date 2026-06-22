@@ -1,5 +1,5 @@
-// server.js - Simple entry point structure
-const http = require('http'); // Built-in Node.js module
+// server.js - Simple Node.js HTTP server
+const http = require('http');
 
 const PORT = process.env.PORT || 3000;
 
@@ -9,6 +9,12 @@ const server = http.createServer((req, res) => {
   res.end(JSON.stringify({ message: 'Hello World from Node.js!' }));
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running smoothly on port ${PORT}`);
-});
+// Only start listening if run directly
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`Server running smoothly on port ${PORT}`);
+  });
+}
+
+// Export for testing
+module.exports = server;
