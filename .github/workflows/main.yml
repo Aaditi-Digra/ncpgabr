@@ -1,13 +1,14 @@
 name: workflow-1
 on:
-   workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
-   job-1:
-     runs-on: ubuntu-latest
+  job-1:
+    runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
         run: echo "Hello, world!"
 
       - name: Run a multi-line script
-        run: echo "thanks for using me"
+        run: |
+          echo "thanks for using me"
