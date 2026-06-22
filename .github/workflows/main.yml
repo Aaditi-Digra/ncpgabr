@@ -6,12 +6,14 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script
-        run: echo "Hello, world!"
+      - name: checkout
+        uses: actions/checkout@v7
 
-      - name: Run a multi-line script
-        run: |
-          echo "thanks for using me"
+      - name: install dependecies
+        run: npm install
 
-      - name: cpu info
-        run: lscpu
+      - name: test
+        run: npm test
+
+      - name: starting the app
+        run: npm start
